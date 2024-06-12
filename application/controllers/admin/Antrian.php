@@ -11,8 +11,9 @@ class Antrian extends CI_Controller {
     }
 
     public function index() {
+        $data['judul'] = 'Pesan Menu';
         $data['antrian'] = $this->Model_antrian->tampil_data();
-        $this->load->view('template_admin/header');
+        $this->load->view('template_admin/header', $data);
         $this->load->view('template_admin/sidebar');
         $this->load->view('admin/antrian', $data);
         $this->load->view('template_admin/footer');

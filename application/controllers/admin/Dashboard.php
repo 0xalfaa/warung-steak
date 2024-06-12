@@ -33,7 +33,7 @@ class Dashboard extends CI_Controller {
     }
 
     public function detail_pesanan() {
-        $data['judul'] = 'WARUNG STEAK';
+        $data['judul'] = 'keranjang Belanja';
         $this->load->view('template_admin/header', $data);
         $this->load->view('template_admin/sidebar');
         $this->load->view('admin/pesanan');
@@ -60,7 +60,7 @@ class Dashboard extends CI_Controller {
     }
 
     public function pembayaran() {
-        $data['judul'] = 'WARUNG STEAK';
+        $data['judul'] = 'Pembayaran';
         $this->load->view('template_admin/header', $data);
         $this->load->view('template_admin/sidebar');
         $this->load->view('admin/pembayaran');

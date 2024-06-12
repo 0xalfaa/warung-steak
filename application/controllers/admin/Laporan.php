@@ -3,6 +3,7 @@
 class Laporan extends CI_Controller{
 
     public function index(){
+        $data['judul'] = 'Laporan Penjualan';
 
         $dari = $this->input->post('dari');
         $sampai = $this->input->post('sampai');
@@ -19,7 +20,7 @@ class Laporan extends CI_Controller{
                 JOIN karyawan k ON a.ID_KARYAWAN = k.ID_KARYAWAN"
             )->result();
             
-            $this->load->view('template_admin/header');
+            $this->load->view('template_admin/header', $data);
             $this->load->view('template_admin/sidebar');
             $this->load->view('admin/filter_laporan', $data);
             $this->load->view('template_admin/footer');
@@ -34,7 +35,7 @@ class Laporan extends CI_Controller{
                 WHERE DATE(a.TANGGAL) >= '$dari' AND DATE(a.TANGGAL) <= '$sampai'"
             )->result();
             
-            $this->load->view('template_admin/header');
+            $this->load->view('template_admin/header', $data);
             $this->load->view('template_admin/sidebar');
             $this->load->view('admin/tampilkan_laporan', $data);
             $this->load->view('template_admin/footer');
@@ -53,7 +54,7 @@ class Laporan extends CI_Controller{
             JOIN karyawan k ON a.ID_KARYAWAN = k.ID_KARYAWAN 
             WHERE DATE(a.TANGGAL) >= '$dari' AND DATE(a.TANGGAL) <= '$sampai'"
         )->result();
-        $this->load->view('template_admin/header');
+        $this->load->view('template_admin/header', $data);
         $this->load->view('admin/print_laporan', $data);
 
     }

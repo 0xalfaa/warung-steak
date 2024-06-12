@@ -12,7 +12,7 @@ class Data_menu extends CI_Controller {
     }
 
     public function index(){
-        $data['judul'] = 'Menu';
+        $data['judul'] = 'Daftar Menu';
         $data['menu'] = $this->Model_menu->getAllMenu()->result();
         $this->load->view('template_karyawan/header', $data);
         $this->load->view('template_karyawan/sidebar');
