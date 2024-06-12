@@ -20,7 +20,11 @@
                     </div>
 
                     <button type="submit" class="btn btn-sm btn-primary">Tampilkan Data</button>
-                </form>
+                </form><hr>
+
+                <div class="btn-group">
+                    <a class="btn btn-sm btn-success" target="_blank" href="<?php echo base_url().'admin/laporan/print_laporan/?dari='.set_value('dari').'&sampai='.set_value('sampai') ?>"><i class="fas fa-print"></i> Print</a>
+                </div>
 
                 <div class="table-responsive mt-3">
                     <table class="table table-bordered table-striped">
@@ -34,7 +38,12 @@
                             <th>Nama Karyawan</th>
                         </tr>
 
-                        <?php $no = 1; foreach($laporan as $l) : ?>
+                        <?php 
+                        $no = 1;
+                        $total_pemasukan = 0;
+                        foreach($laporan as $l) : 
+                            $total_pemasukan += $l->TOTAL;
+                        ?>
                             <tr>
                                 <td><?php echo $no++ ?></td>
                                 <td><?php echo $l->TANGGAL ?></td>
@@ -45,6 +54,10 @@
                                 <td><?php echo $l->NAMA_KARYAWAN ?></td>
                             </tr>
                         <?php endforeach; ?>
+                        <tr>
+                            <td colspan="5"><strong>Total Pemasukan</strong></td>
+                            <td colspan="2"><strong>Rp. <?php echo number_format($total_pemasukan, 0, ',', '.') ?></strong></td>
+                        </tr>
                     </table>
 
             </div>

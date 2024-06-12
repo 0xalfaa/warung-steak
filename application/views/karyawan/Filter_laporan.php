@@ -9,12 +9,12 @@
             <div class="card-body">
                 <form action="<?php echo base_url('karyawan/laporan') ?>" method="POST">
                     <div class="form-group">
-                        <label>Dari Tanggal</label>
+                        <label for="dari">Dari Tanggal</label>
                         <input type="date" name="dari" class="form-control">
                         <?php echo form_error('dari', '<span class="text-small text-danger">','</span>') ?>
                     </div>
                     <div class="form-group">
-                        <label>Sampai Tanggal</label>
+                        <label for="sampai">Sampai Tanggal</label>
                         <input type="date" name="sampai" class="form-control">
                         <?php echo form_error('sampai', '<span class="text-small text-danger">','</span>') ?>
                     </div>
