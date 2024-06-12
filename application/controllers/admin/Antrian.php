@@ -11,7 +11,7 @@ class Antrian extends CI_Controller {
     }
 
     public function index() {
-        $data['judul'] = 'Pesan Menu';
+        $data['judul'] = 'Antrian Pelanggan';
         $data['antrian'] = $this->Model_antrian->tampil_data();
         $this->load->view('template_admin/header', $data);
         $this->load->view('template_admin/sidebar');
