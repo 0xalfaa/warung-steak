@@ -22,5 +22,11 @@ class Antrian extends CI_Controller {
         $this->Model_antrian->update_status($id, $status);
         redirect('admin/antrian');
     }
+
+    public function detail($id_antrian) {
+        $order_details = $this->Model_antrian->detail_pesanan($id_antrian);
+        echo json_encode($order_details);
+    }    
+    
 }
 ?>

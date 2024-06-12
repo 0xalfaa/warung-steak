@@ -1,5 +1,4 @@
 <?php
-
 class Model_antrian extends CI_Model {
 
     public function index() {
@@ -35,7 +34,6 @@ class Model_antrian extends CI_Model {
         return TRUE;
     }
 
-
     public function tampil_data() {
         $this->db->order_by('TANGGAL', 'ASC');
         $result = $this->db->get('antrian');
@@ -50,5 +48,14 @@ class Model_antrian extends CI_Model {
         $this->db->where('ID_ANTRIAN', $id);
         $this->db->update('antrian', array('STATUS' => $status));
     }
+
+    public function detail_pesanan($id_antrian) {
+        $this->db->select('NAMA_MENU, JUMLAH, HARGA, (JUMLAH * HARGA) as SUBTOTAL');
+        $this->db->from('pesanan');
+        $this->db->where('ID_ANTRIAN', $id_antrian);
+        $query = $this->db->get();
+        return $query->result();
+    }
+    
 }
 ?>

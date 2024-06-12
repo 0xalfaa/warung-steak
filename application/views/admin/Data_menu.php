@@ -6,7 +6,7 @@
     <div class="grid-margin">
             <div class="card">
             <div class="card-body">
-              <button class="btn btn-sm btn-primary mb-3" data-toggle="modal" data-target="#tambah_menu"></i> Tambah Menu</button>
+              <button class="btn btn-sm btn-primary mb-3" data-toggle="modal" data-target="#tambah_menu"> Tambah Menu</button>
 
               <table class="table table-hover table-striped">
                 <thead>
