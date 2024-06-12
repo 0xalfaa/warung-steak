@@ -11,8 +11,9 @@ class Antrian extends CI_Controller {
     }
 
     public function index() {
+        $data['judul'] = 'Pesan Menu';
         $data['antrian'] = $this->Model_antrian->tampil_data();
-        $this->load->view('template_karyawan/header');
+        $this->load->view('template_karyawan/header', $data);
         $this->load->view('template_karyawan/sidebar');
         $this->load->view('karyawan/antrian', $data);
         $this->load->view('template_karyawan/footer');
@@ -22,5 +23,10 @@ class Antrian extends CI_Controller {
         $this->Model_antrian->update_status($id, $status);
         redirect('karyawan/antrian');
     }
+
+    public function detail($id_antrian) {
+        $order_details = $this->Model_antrian->detail_pesanan($id_antrian);
+        echo json_encode($order_details);
+    } 
 }
 ?>
