@@ -37,9 +37,9 @@
                           </td>
                           <td>
                             <?php if ($a->STATUS == 0): ?>
-                              <a href="<?php echo base_url('admin/antrian/update_status/'.$a->ID_ANTRIAN.'/1') ?>" class="btn btn-warning">Bayar</a>
+                              <a href="<?php echo base_url('karyawan/antrian/update_status/'.$a->ID_ANTRIAN.'/1') ?>" class="btn btn-warning">Bayar</a>
                             <?php elseif ($a->STATUS == 1): ?>
-                              <a href="<?php echo base_url('admin/antrian/update_status/'.$a->ID_ANTRIAN.'/2') ?>" class="btn btn-success">Selesai</a>
+                              <a href="<?php echo base_url('karyawan/antrian/update_status/'.$a->ID_ANTRIAN.'/2') ?>" class="btn btn-success">Selesai</a>
                             <?php endif; ?>
                           </td>
                           <td>
