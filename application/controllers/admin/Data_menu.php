@@ -46,7 +46,6 @@ class Data_menu extends CI_Controller {
             <button type="button" class="close" data-dismiss="alert" aria-label="Close">
             <span aria-hidden="true">&times;</span></button></div>');
             redirect('admin/data_menu/');
-            redirect('admin/data_menu/');
         }
     }    
 
