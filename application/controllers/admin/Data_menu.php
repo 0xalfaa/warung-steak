@@ -42,6 +42,10 @@ class Data_menu extends CI_Controller {
             );
     
             $this->Model_menu->tambah_menu($data, 'menu');
+            $this->session->set_flashdata('menu','<div class="alert alert-success alert-dismissible fade show" role="alert"> Menu Berhasil Ditambahkan!
+            <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+            <span aria-hidden="true">&times;</span></button></div>');
+            redirect('admin/data_menu/');
             redirect('admin/data_menu/');
         }
     }    
@@ -83,6 +87,9 @@ class Data_menu extends CI_Controller {
             );
     
             $this->Model_menu->update_data($where,$data, 'menu');
+            $this->session->set_flashdata('menu','<div class="alert alert-success alert-dismissible fade show" role="alert"> Menu Berhasil Diupdate!
+            <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+            <span aria-hidden="true">&times;</span></button></div>');
             redirect('admin/data_menu/');
         }
     }  
@@ -94,6 +101,9 @@ class Data_menu extends CI_Controller {
         );
 
         $this->Model_menu->hapus_menu($where, 'menu');
+        $this->session->set_flashdata('menu','<div class="alert alert-danger alert-dismissible fade show" role="alert"> Menu Berhasil Dihapus!
+            <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+            <span aria-hidden="true">&times;</span></button></div>');
         redirect('admin/data_menu/');
     }
 }

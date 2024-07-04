@@ -7,6 +7,7 @@
             <div class="card">
             <div class="card-body">
               <button class="btn btn-sm btn-primary mb-3" data-toggle="modal" data-target="#tambah_menu"> Tambah Menu</button>
+              <?php echo $this->session->flashdata('menu')?>
 
               <table class="table table-hover table-striped">
                 <thead>
@@ -25,11 +26,16 @@
                       <td><?php echo $no++ ?></td>
                       <td><img width="100px" src="<?php echo base_url().'/uploads/'.$m->FOTO?>"></td>
                       <td><?php echo $m->NAMA_MENU?></td>
-                      <td><?php echo $m->HARGA?></td>
-                      <td><?php echo $m->STOK?></td>
                       <td>
-                      <?php echo anchor('admin/data_menu/edit_menu/'.$m->ID_MENU, '<div class="btn btn-primary btn-sm"><i class="fas fa-edit"></i> </div>')?>
-                      <?php echo anchor('admin/data_menu/menu_hapus/' .$m->ID_MENU, ' <div class="btn btn-danger btn-sm"><i class="fas fa-trash"></i> </div>')?>
+                        <div style="display: flex; justify-content: space-between;">
+                         <span>Rp</span>
+                          <span style="text-align: right;"><?php echo number_format($m->HARGA, 0, ',', '.') ?></span>
+                        </div>
+                      </td>
+                      <td align="right"><?php echo $m->STOK?></td>
+                      <td>
+                      <a href="<?php echo base_url('admin/data_menu/edit_menu/'.$m->ID_MENU) ?>" class="btn btn-primary btn-sm"><i class="fas fa-edit"></i></a>
+                      <a href="<?php echo base_url('admin/data_menu/menu_hapus/'.$m->ID_MENU) ?>" class="btn btn-danger btn-sm" onclick="return confirm('Yakin ingin menghapus menu?')"><i class="fas fa-trash"></i></a>
                       </td>
                     </tr>
                   <?php endforeach?>

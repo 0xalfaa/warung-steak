@@ -44,15 +44,33 @@
                                 <td><?php echo $no++ ?></td>
                                 <td><?php echo $l->TANGGAL ?></td>
                                 <td><?php echo $l->NAMA_MENU ?></td>
-                                <td>Rp. <?php echo number_format($l->HARGA, 0, ',', '.') ?></td>
-                                <td><?php echo $l->JUMLAH ?></td>
-                                <td>Rp. <?php echo number_format($l->TOTAL, 0, ',', '.') ?></td>
+                                <td>
+                                    <div style="display: flex; justify-content: space-between;">
+                                    <span>Rp</span>
+                                    <span style="text-align: right;"><?php echo number_format($l->HARGA, 0, ',', '.') ?></span>
+                                    </div>
+                                </td>
+                                <td align="right"><?php echo $l->JUMLAH ?></td>
+                                <td>
+                                    <div style="display: flex; justify-content: space-between;">
+                                    <span>Rp</span>
+                                    <span style="text-align: right;"><?php echo number_format($l->TOTAL, 0, ',', '.') ?></span>
+                                    </div>
+                                </td>
                                 <td><?php echo $l->NAMA_KARYAWAN ?></td>
                             </tr>
                         <?php endforeach; ?>
                         <tr>
-                            <td colspan="5"><strong>Total Penghasilan</strong></td>
-                            <td colspan="2"><strong>Rp. <?php echo number_format($total_penghasilan, 0, ',', '.') ?></strong></td>
+                            <td colspan="6"><strong>Total Penghasilan</strong></td>
+                            <td colspan="3">
+                                    <div style="display: flex; justify-content: space-between;">
+                                    
+                                    <strong><span>Rp</span></strong>
+                                    <strong><span style="text-align: right;"><?php echo number_format($total_penghasilan, 0, ',', '.') ?>
+                                    </span></strong>
+                                    </div>
+                            </td>
+                            
                         </tr>
                     </table>
 

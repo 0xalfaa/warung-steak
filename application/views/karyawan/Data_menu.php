@@ -5,41 +5,48 @@
     </div>
     <div class="grid-margin">
             <div class="card">
-              <div class="card-body">
-                <button class="btn btn-sm btn-primary mb-3" data-toggle="modal" data-target="#tambah_menu"></i> Tambah Menu</button>
+            <div class="card-body">
+              <button class="btn btn-sm btn-primary mb-3" data-toggle="modal" data-target="#tambah_menu"> Tambah Menu</button>
+              <?php echo $this->session->flashdata('menu')?>
 
-                  <table class="table table-hover table-striped">
-                    <thead>
-                      <th>NO</th>
-                      <th>GAMBAR</th>
-                      <th>NAMA MENU</th>
-                      <th>HARGA</th>
-                      <th>STOK</th>
-                      <th colspan="3">AKSI</th> 
-                    </thead>
-                    <tbody>
-                      <?php 
-                    $no=1;
-                    foreach ($menu as $m) : ?>
-                        <tr>
-                          <td><?php echo $no++ ?></td>
-                          <td><img width="100px" src="<?php echo base_url().'/uploads/'.$m->FOTO?>"></td>
-                          <td><?php echo $m->NAMA_MENU?></td>
-                          <td><?php echo $m->HARGA?></td>
-                          <td><?php echo $m->STOK?></td>
-                          <td>
-                          <?php echo anchor('karyawan/data_menu/edit_menu/'.$m->ID_MENU, '<div class="btn btn-primary btn-sm"><i class="fas fa-edit"></i> </div>')?>
-                          <?php echo anchor('karyawan/data_menu/menu_hapus/' .$m->ID_MENU, ' <div class="btn btn-danger btn-sm"><i class="fas fa-trash"></i> </div>')?>
-                          </td>
-                        </tr>
-                      <?php endforeach?>
-                    </tbody>
-                  </table>
-                  </div>
-                </div>
+              <table class="table table-hover table-striped">
+                <thead>
+                  <th>NO</th>
+                  <th>GAMBAR</th>
+                  <th>NAMA MENU</th>
+                  <th>HARGA</th>
+                  <th>STOK</th>
+                  <th colspan="3">AKSI</th> 
+                </thead>
+                <tbody>
+                  <?php 
+                $no=1;
+                foreach ($menu as $m) : ?>
+                    <tr>
+                      <td><?php echo $no++ ?></td>
+                      <td><img width="100px" src="<?php echo base_url().'/uploads/'.$m->FOTO?>"></td>
+                      <td><?php echo $m->NAMA_MENU?></td>
+                      <td>
+                        <div style="display: flex; justify-content: space-between;">
+                         <span>Rp</span>
+                          <span style="text-align: right;"><?php echo number_format($m->HARGA, 0, ',', '.') ?></span>
+                        </div>
+                      </td>
+                      <td align="right"><?php echo $m->STOK?></td>
+                      <td>
+                      <a href="<?php echo base_url('karyawan/data_menu/edit_menu/'.$m->ID_MENU) ?>" class="btn btn-primary btn-sm"><i class="fas fa-edit"></i></a>
+                      <a href="<?php echo base_url('karyawan/data_menu/menu_hapus/'.$m->ID_MENU) ?>" class="btn btn-danger btn-sm" onclick="return confirm('Yakin ingin menghapus menu?')"><i class="fas fa-trash"></i></a>
+                      </td>
+                    </tr>
+                  <?php endforeach?>
+                </tbody>
+              </table>
+              </section>
               </div>
-</section>
-</div>
+             </div>
+            </div>
+          </div>
+
 
 <!-- Modal -->
 <div class="modal fade" id="tambah_menu" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
