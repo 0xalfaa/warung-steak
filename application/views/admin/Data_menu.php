@@ -9,7 +9,7 @@
               <button class="btn btn-sm btn-primary mb-3" data-toggle="modal" data-target="#tambah_menu"> Tambah Menu</button>
               <?php echo $this->session->flashdata('menu')?>
 
-              <table class="table table-hover table-striped">
+              <table class="table table-striped table-bordered"">
                 <thead>
                   <th>NO</th>
                   <th>GAMBAR</th>
