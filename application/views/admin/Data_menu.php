@@ -19,7 +19,7 @@
                   <th colspan="3">AKSI</th> 
                 </thead>
                 <tbody>
-                  <?php 
+                <?php 
                 $no=1;
                 foreach ($menu as $m) : ?>
                     <tr>
@@ -38,7 +38,7 @@
                       <a href="<?php echo base_url('admin/data_menu/menu_hapus/'.$m->ID_MENU) ?>" class="btn btn-danger btn-sm" onclick="return confirm('Yakin ingin menghapus menu?')"><i class="fas fa-trash"></i></a>
                       </td>
                     </tr>
-                  <?php endforeach?>
+                <?php endforeach?>
                 </tbody>
               </table>
               </section>

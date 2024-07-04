@@ -15,7 +15,6 @@
                   <th>NAMA KARYAWAN</th>
                   <th>USERNAME</th>
                   <th>NO HP</th>
-                  <th>PASSWORD</th>
                   <th>AKSI</th> 
                 </thead>
                 <tbody>
@@ -27,12 +26,11 @@
                         <td><?php echo $k->NAMA_KARYAWAN?></td>
                         <td><?php echo $k->USERNAME?></td>
                         <td><?php echo $k->NO_HP_KARYAWAN?></td>
-                        <td><?php echo $k->PASSWORD?></td>
                         <td>
-                            <div class="row">
-                                <?php echo anchor('admin/data_karyawan/edit_karyawan/'.$k->ID_KARYAWAN, '<div class="btn btn-primary btn-sm mr-2 ml-2"><i class="fas fa-edit"></i> </div>')?>
-                                <?php echo anchor('admin/data_karyawan/hapus_karyawan/' .$k->ID_KARYAWAN, ' <div class="btn btn-danger btn-sm"><i class="fas fa-trash"></i> </div>')?>
-                            </div>
+                        <div class="row">
+                            <a href="<?php echo base_url('admin/data_karyawan/edit_karyawan/'.$k->ID_KARYAWAN) ?>" class="btn btn-primary btn-sm mr-2 ml-2"><i class="fas fa-edit"></i></a>
+                            <a href="<?php echo base_url('admin/data_karyawan/hapus_karyawan/' .$k->ID_KARYAWAN) ?>" class="btn btn-danger btn-sm" onclick="return confirm('Yakin ingin menghapus data karyawan?')"><i class="fas fa-trash"></i></a>
+                            <div>
                         </td>
                       </tr>
                     <?php endforeach?>

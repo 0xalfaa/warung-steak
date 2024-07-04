@@ -25,7 +25,7 @@
                         </div>
                         <div class="form-group">
                             <label>PASSWORD</label>
-                            <input type="password" name="PASSWORD" class="form-control" value="<?php echo $k->PASSWORD ?>">
+                            <input type="text" name="PASSWORD" class="form-control" value="<?php echo $k->PASSWORD ?>">
                         </div>
                         <button type="submit" class="btn btn-primary btn-sm mt-3">Simpan</button>
                         </form> 
