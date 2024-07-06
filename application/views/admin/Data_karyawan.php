@@ -7,7 +7,8 @@
             <div class="card">
             <div class="card-body">
             <button class="btn btn-sm btn-primary mb-3" data-toggle="modal" data-target="#tambah_menu"></i> Tambah Karyawan</button>
-              <?php echo $this->session->flashdata('karyawan')?>
+              <?php echo $this->session->flashdata('karyawan');?>
+              <?php $this->session->unset_userdata('karyawan');?>
 
               <table class="table table-striped table-bordered">
                 <thead>

@@ -3,6 +3,15 @@
     <div class="section-header">
       <h1>Menu Pesanan</h1>
     </div>
+    <?php if ($this->session->flashdata('error')): ?>
+    <div class="alert alert-danger alert-dismissible fade show" role="alert">
+        <?php echo $this->session->flashdata('error'); ?>
+        <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+            <span aria-hidden="true">&times;</span>
+        </button>
+    </div>
+    <?php $this->session->unset_userdata('error'); // Hapus session error ?>
+    <?php endif; ?>
     <div class="container">
       <div class="row text-center">
       <?php foreach ($menu as $m) : ?>
@@ -11,7 +20,8 @@
                   <img src="<?php echo base_url().'/uploads/'.$m->FOTO?>" class="card-img-top img-fluid custom-img" alt="...">
                   <div class="card-body">
                       <h5 class="card-title"><?php echo $m->NAMA_MENU ?></h5> 
-                      <p class="card-text">Rp. <?php echo number_format($m->HARGA, 0,',','.') ?></p>
+                      <p class="card-text">Rp <?php echo number_format($m->HARGA, 0,',','.') ?></p>
+                      <p class="card-text text-muted">stok: <?php echo $m->STOK ?></p>
                       <?php echo anchor('admin/dashboard/tambah_ke_pesanan/'.$m->ID_MENU,'<div class="btn btn-primary btn-sm mt-1">Tambah ke Pesanan</div>')?>
                   </div>
               </div>

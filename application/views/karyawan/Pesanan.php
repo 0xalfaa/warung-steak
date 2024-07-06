@@ -25,7 +25,7 @@
                             <td><input type="number" class="form-control text-center" value="<?php echo $items["qty"]; ?>" onchange="update_item_keranjang(this, '<?php echo $items["rowid"]; ?>')"></td>
                             <td align="right">Rp. <?php echo number_format($items['price'], 0,',','.') ?></td>
                             <td align="right">Rp. <?php echo number_format($items['subtotal'], 0,',','.') ?></td>
-                            <td align="center" width="20%" onclick="return confirm('yakin ingin menghapus keranjang?')"><?php echo anchor('admin/dashboard/hapus_item_keranjang/'.$items['rowid'],'<div class="btn-delete"><i class="fas fa-lg fa-times"></i></div>')?></td>
+                            <td align="center" width="20%" onclick="return confirm('yakin ingin menghapus keranjang?')"><?php echo anchor('karyawan/dashboard/hapus_item_keranjang/'.$items['rowid'],'<div class="btn-delete"><i class="fas fa-lg fa-times"></i></div>')?></td>
                         </tr>
                         <?php  endforeach; ?>
                         <tr>

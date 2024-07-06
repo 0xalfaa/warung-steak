@@ -22,15 +22,35 @@ class Dashboard extends CI_Controller {
 
     public function tambah_ke_pesanan($id) {
         $menu = $this->Model_menu->find($id);
-        $data = array(
-            'id'      => $menu->ID_MENU,
-            'qty'     => 1,
-            'price'   => $menu->HARGA,
-            'name'    => $menu->NAMA_MENU
-        );
-        $this->cart->insert($data);
+        
+        // Ambil jumlah pesanan yang ada di keranjang untuk menu ini
+        $cart_items = $this->cart->contents();
+        $current_qty = 0;
+        foreach ($cart_items as $item) {
+            if ($item['id'] == $menu->ID_MENU) {
+                $current_qty = $item['qty'];
+                break;
+            }
+        }
+        
+        // Periksa apakah stok mencukupi
+        if ($menu->STOK > $current_qty) {
+            $data = array(
+                'id'      => $menu->ID_MENU,
+                'qty'     => 1,
+                'price'   => $menu->HARGA,
+                'name'    => $menu->NAMA_MENU
+            );
+            $this->cart->insert($data);
+        } else {
+            // Tampilkan pesan error jika stok tidak mencukupi
+            $this->session->set_flashdata('error', 'Stok tidak mencukupi untuk menambahkan pesanan.');
+        }
         redirect('admin/dashboard');
     }
+    
+    
+    
 
     public function detail_pesanan() {
         $data['judul'] = 'keranjang Belanja';
