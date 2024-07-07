@@ -5,10 +5,8 @@ class Model_antrian extends CI_Model {
         date_default_timezone_set('Asia/Jakarta');
         $NAMA = $this->input->post('NAMA');
         $NO_MEJA = $this->input->post('NO_MEJA');
-
-        // Mendapatkan ID_KARYAWAN dari session
         $ID_KARYAWAN = $this->session->userdata('ID_KARYAWAN');
-        
+
         $antrian = array(
             'NAMA'      => $NAMA,
             'NO_MEJA'   => $NO_MEJA,
@@ -34,14 +32,24 @@ class Model_antrian extends CI_Model {
         return TRUE;
     }
 
-    public function tampil_data() {
+    public function get_antrian_pelanggan() {
+        $this->db->where('STATUS !=', 2);
         $this->db->order_by('TANGGAL', 'DESC');
         $result = $this->db->get('antrian');
-        if ($result->num_rows() > 0) {
-            return $result->result();
-        } else {
-            return false;
-        }
+        return $result->result();
+    }
+
+    public function count_pesanan_selesai() {
+        $this->db->where('STATUS', 2);
+        return $this->db->count_all_results('antrian');
+    }
+
+    public function get_pesanan_selesai($limit, $offset) {
+        $this->db->where('STATUS', 2);
+        $this->db->order_by('TANGGAL', 'DESC');
+        $this->db->limit($limit, $offset);
+        $result = $this->db->get('antrian');
+        return $result->result();
     }
 
     public function update_status($id, $status) {
@@ -56,6 +64,6 @@ class Model_antrian extends CI_Model {
         $query = $this->db->get();
         return $query->result();
     }
-    
 }
+
 ?>

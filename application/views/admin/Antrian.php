@@ -74,8 +74,8 @@
                   </tr>
                 </thead>
                 <tbody>
-                  <?php if (isset($antrian) && is_array($antrian)):?>
-                    <?php foreach ($antrian as $a) :?>
+                <?php if (isset($pesanan_selesai) && is_array($pesanan_selesai)):?>
+                    <?php foreach ($pesanan_selesai as $a) :?>
                       <?php if ($a->STATUS == 2):?>
                         <tr>
                           <td><?php echo $a->NO_MEJA?></td>
@@ -96,6 +96,7 @@
                 </tbody>
               </table>
             </div>
+            <?php echo $pagination;?>
           </div>
         </div>
       </div>
