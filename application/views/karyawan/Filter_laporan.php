@@ -35,13 +35,11 @@
                         </tr>
 
                         <?php 
-                        $no = 1;
-                        $total_penghasilan = 0;
+                       
                         foreach($laporan as $l) : 
-                            $total_penghasilan += $l->TOTAL;
                         ?>
                             <tr>
-                                <td><?php echo $no++ ?></td>
+                                <td><?php echo ++$start ?></td>
                                 <td><?php echo $l->TANGGAL ?></td>
                                 <td><?php echo $l->NAMA_MENU ?></td>
                                 <td>
@@ -61,7 +59,7 @@
                             </tr>
                         <?php endforeach; ?>
                         <tr>
-                            <td colspan="6"><strong>Total Penghasilan</strong></td>
+                            <td colspan="6"><strong>Total Penghasilan Keseluruhan</strong></td>
                             <td colspan="3">
                                     <div style="display: flex; justify-content: space-between;">
                                     
@@ -73,10 +71,8 @@
                             
                         </tr>
                     </table>
-
             </div>
+            <?php echo $pagination; ?>
         </div>
-    </div>
- </div>
-</section>
+    </section>
 </div>

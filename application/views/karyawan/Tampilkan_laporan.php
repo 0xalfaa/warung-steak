@@ -23,7 +23,7 @@
                 </form><hr>
 
                 <div class="btn-group">
-                    <a class="btn btn-sm btn-success" target="_blank" href="<?php echo base_url().'admin/laporan/print_laporan/?dari='.set_value('dari').'&sampai='.set_value('sampai') ?>"><i class="fas fa-print"></i> Print</a>
+                    <a class="btn btn-sm btn-success" target="_blank" href="<?php echo base_url().'karyawan/laporan/print_laporan/?dari='.set_value('dari').'&sampai='.set_value('sampai') ?>"><i class="fas fa-print"></i> Print</a>
                 </div>
 
                 <div class="table-responsive mt-3">
@@ -77,7 +77,6 @@
                             
                         </tr>
                     </table>
-
             </div>
         </div>
     </div>
