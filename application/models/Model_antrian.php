@@ -35,7 +35,7 @@ class Model_antrian extends CI_Model {
     }
 
     public function tampil_data() {
-        $this->db->order_by('TANGGAL', 'ASC');
+        $this->db->order_by('TANGGAL', 'DESC');
         $result = $this->db->get('antrian');
         if ($result->num_rows() > 0) {
             return $result->result();

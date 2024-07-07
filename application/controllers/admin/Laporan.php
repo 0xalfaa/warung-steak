@@ -12,13 +12,7 @@ class Laporan extends CI_Controller{
 
         if($this->form_validation->run() == FALSE){
             // Jika form belum disubmit, tampilkan semua data
-            $data['laporan'] = $this->db->query(
-                "SELECT a.TANGGAL, m.NAMA_MENU, p.HARGA, p.JUMLAH, (p.HARGA * p.JUMLAH) AS TOTAL, k.NAMA_KARYAWAN 
-                FROM pesanan p 
-                JOIN antrian a ON p.ID_ANTRIAN = a.ID_ANTRIAN 
-                JOIN menu m ON p.ID_MENU = m.ID_MENU 
-                JOIN karyawan k ON a.ID_KARYAWAN = k.ID_KARYAWAN"
-            )->result();
+            $data['laporan'] = $this->Model_laporan->get_all_laporan();
             
             $this->load->view('template_admin/header', $data);
             $this->load->view('template_admin/sidebar');
@@ -26,14 +20,7 @@ class Laporan extends CI_Controller{
             $this->load->view('template_admin/footer');
         }else{
             // Jika form disubmit, filter data berdasarkan tanggal
-            $data['laporan'] = $this->db->query(
-                "SELECT a.TANGGAL, m.NAMA_MENU, p.HARGA, p.JUMLAH, (p.HARGA * p.JUMLAH) AS TOTAL, k.NAMA_KARYAWAN 
-                FROM pesanan p 
-                JOIN antrian a ON p.ID_ANTRIAN = a.ID_ANTRIAN 
-                JOIN menu m ON p.ID_MENU = m.ID_MENU 
-                JOIN karyawan k ON a.ID_KARYAWAN = k.ID_KARYAWAN 
-                WHERE DATE(a.TANGGAL) >= '$dari' AND DATE(a.TANGGAL) <= '$sampai'"
-            )->result();
+            $data['laporan'] = $this->Model_laporan->get_laporan_by_date($dari, $sampai);
             
             $this->load->view('template_admin/header', $data);
             $this->load->view('template_admin/sidebar');
@@ -46,17 +33,10 @@ class Laporan extends CI_Controller{
         $data['judul'] = "Print Laporan Transaksi";
         $dari = $this->input->get('dari');
         $sampai = $this->input->get('sampai');
-        $data['laporan'] = $this->db->query(
-            "SELECT a.TANGGAL, m.NAMA_MENU, p.HARGA, p.JUMLAH, (p.HARGA * p.JUMLAH) AS TOTAL, k.NAMA_KARYAWAN 
-            FROM pesanan p 
-            JOIN antrian a ON p.ID_ANTRIAN = a.ID_ANTRIAN 
-            JOIN menu m ON p.ID_MENU = m.ID_MENU 
-            JOIN karyawan k ON a.ID_KARYAWAN = k.ID_KARYAWAN 
-            WHERE DATE(a.TANGGAL) >= '$dari' AND DATE(a.TANGGAL) <= '$sampai'"
-        )->result();
+        $data['laporan'] = $this->Model_laporan->get_laporan_by_date($dari, $sampai);
+        
         $this->load->view('template_admin/header', $data);
         $this->load->view('admin/print_laporan', $data);
-
     }
 
     public function _rules(){
