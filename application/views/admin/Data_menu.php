@@ -35,7 +35,7 @@
                       <td align="right"><?php echo $m->STOK?></td>
                       <td>
                       <a href="<?php echo base_url('admin/data_menu/edit_menu/'.$m->ID_MENU) ?>" class="btn btn-primary btn-sm"><i class="fas fa-edit"></i></a>
-                      <a href="<?php echo base_url('admin/data_menu/menu_hapus/'.$m->ID_MENU) ?>" class="btn btn-danger btn-sm" onclick="return confirm('Yakin ingin menghapus menu?')"><i class="fas fa-trash"></i></a>
+                      <a href="<?php echo base_url('admin/data_menu/menu_hapus/'.$m->ID_MENU) ?>" class="btn btn-danger btn-sm" onclick="return confirm('Yakin ingin menghapus menu <?php echo $m->NAMA_MENU?> ?')"><i class="fas fa-trash"></i></a>
                       </td>
                     </tr>
                 <?php endforeach?>

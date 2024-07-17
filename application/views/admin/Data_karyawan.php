@@ -30,7 +30,7 @@
                         <td>
                         <div class="row">
                             <a href="<?php echo base_url('admin/data_karyawan/edit_karyawan/'.$k->ID_KARYAWAN) ?>" class="btn btn-primary btn-sm mr-2 ml-2"><i class="fas fa-edit"></i></a>
-                            <a href="<?php echo base_url('admin/data_karyawan/hapus_karyawan/' .$k->ID_KARYAWAN) ?>" class="btn btn-danger btn-sm" onclick="return confirm('Yakin ingin menghapus data karyawan?')"><i class="fas fa-trash"></i></a>
+                            <a href="<?php echo base_url('admin/data_karyawan/hapus_karyawan/' .$k->ID_KARYAWAN) ?>" class="btn btn-danger btn-sm" onclick="return confirm('Yakin ingin menghapus data karyawan <?php echo $k->NAMA_KARYAWAN?>?')"><i class="fas fa-trash"></i></a>
                             <div>
                         </td>
                       </tr>
